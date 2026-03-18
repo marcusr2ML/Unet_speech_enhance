@@ -6,7 +6,7 @@ from torch.utils.data import Dataset
 
 TARGET_SR = 48000
 
-class GenerateData2(Dataset):
+class GenerateData(Dataset):
     def __init__(self, ROOT,
                  sample_rate=TARGET_SR,
                  N_FFT=1536, HOP_LENGTH=384, WINDOW_SIZE=196608, WINDOW_HOP=49152):
