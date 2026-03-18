@@ -2,7 +2,7 @@ import os
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from generate_data_2 import GenerateData2
+from generate_data import GenerateData
 
 
 from unet import UNet   # <-- your UNet file
@@ -23,7 +23,7 @@ ROOT = "/home/marc/Downloads/train_music/test/"
 def main():
 
     val = 98304
-    dataset = GenerateData2(ROOT,WINDOW_SIZE=val,WINDOW_HOP=int(.25*val))
+    dataset = GenerateData(ROOT,WINDOW_SIZE=val,WINDOW_HOP=int(.25*val))
     loader = DataLoader(dataset, batch_size=3, shuffle=True, num_workers=4)
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
